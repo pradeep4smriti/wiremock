@@ -14,14 +14,14 @@ ENV WM_VERSION 2.7.1
 
 RUN apt-get update && apt-get install -y --no-install-recommends wget \
     && update-ca-certificates --fresh \
-    && mkdir -p /opt/wiremock/ \
-    && wget https://repo1.maven.org/maven2/com/github/tomakehurst/$WM_PKG_NAME/$WM_VERSION/$WM_PKG_NAME-$WM_VERSION.jar --progress=bar:force:noscroll -O /opt/wiremock/wiremock.jar \
+    && mkdir -p /opt/pradeep/wiremock/ \
+    && wget https://repo1.maven.org/maven2/com/github/tomakehurst/$WM_PKG_NAME/$WM_VERSION/$WM_PKG_NAME-$WM_VERSION.jar --progress=bar:force:noscroll -O /opt/pradeep/wiremock/wiremock.jar \
     && rm -rf /var/lib/apt/lists/*
 
 # Define mountable directories.
-VOLUME ["/wiremock/__files", "/wiremock/mappings"]
+VOLUME ["/pradeep/wiremock/__files", "/pradeep/wiremock/mappings"]
 
-WORKDIR /wiremock
+WORKDIR /pradeep/wiremock
 
 EXPOSE 8080
 
